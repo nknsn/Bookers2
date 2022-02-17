@@ -1,0 +1,33 @@
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <h2>User info</h2>
+      <img class="attachment user profile_imaage fallback">
+      <table class="table">
+        <tbody>
+          <tr>
+            <th>name</th>
+            <th><%= @user %></th>
+          </tr>
+          <tr>
+            <th>introduction</th>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h2>New book</h2>
+      
+      <%= form_with model: @Book, local:true do |f| %>
+        <h6>Title</h6>
+        <%= f.text_field :title %>
+        
+        <h6>Opinion</h6>
+        <%= f.text_area :body %>
+        <br>
+        <button type="button" class="btn btn-success">Create Book</button>
+      <% end %>  
+        
+      
+    </div>
+  </div>
+</div>
