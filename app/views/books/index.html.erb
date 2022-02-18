@@ -2,13 +2,19 @@
   <div class="row">
     <div class="col-md-3">
       <h2>User info</h2>
+      
+      <% if user.profile_image.attached? %>
+       <%= image_tag user.profile_imaage, saize: "100x100" %>
+      <% else %>
+       <%= image_tag 'no_image', size: "100x100" %>
+      <% end %>
 
       
       <table class="table">
         <tbody>
           <tr>
             <th>name</th>
-            <th><% @current_user %></th>
+            <th><%= current_user %></th>
           </tr>
           <tr>
             <th>introduction</th>
@@ -25,14 +31,15 @@
       
       <h2 class="mt-3">New book</h2>
       
-      <%= form_with model: @Book, local:true do |f| %>
+      <%= form_with model: @book,local:true do |f| %>
+      
         <h6>Title</h6>
         <%= f.text_field :title %>
         
         <h6>Opinion</h6>
         <%= f.text_area :body %>
         <br>
-        <button type="button" class="btn btn-success">Create Book</button>
+        <%= f.submit'Create Book' %>
       <% end %>  
         
       
