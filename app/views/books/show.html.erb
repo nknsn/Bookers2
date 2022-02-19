@@ -1,1 +1,20 @@
-<h1></h1>
+     <div class="col-md-8 offset-md-1">
+        <h2>Book detail</h2>
+        
+        <table class="table table-hover table-inverse">
+          <thead>
+          </thead>
+          <tbody>
+             <tr>
+                <th><span><%= @book.user.name %></span></th>
+              <th><span><%= link_to @book.title %></span></th>
+              <th><span><%= @book.body %></span></th>
+              <th><span><%= link_to "Edit" %></span></th>
+              <th><span><%= link_to "Destroy", books_path(@book), method: :delete %></span></th>
+                        
+             </tr>
+              
+            
+          </tbody>
+        </table>
+      </div>
