@@ -10,7 +10,12 @@
               <th><span><%= link_to @book.title %></span></th>
               <th><span><%= @book.body %></span></th>
               <th><span><%= link_to "Edit" %></span></th>
-              <th><span><%= link_to "Destroy", books_path(@book), method: :delete %></span></th>
+              
+              <th><span>
+                <% if @book.user == current_user %>
+                <%= link_to "Destroy", book_path, method: :delete %>
+                <% end %>
+                </span></th>
                         
              </tr>
               
