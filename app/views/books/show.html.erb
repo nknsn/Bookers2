@@ -1,25 +1,26 @@
      <div class="col-md-8 offset-md-1">
         <h2>Book detail</h2>
-        
+
         <table class="table table-hover table-inverse">
           <thead>
           </thead>
           <tbody>
              <tr>
-                <th><span><%= @book.user.name %></span></th>
-              <th><span><%= link_to @book.title %></span></th>
-              <th><span><%= @book.body %></span></th>
-              <th><span><%= link_to "Edit" %></span></th>
-              
-              <th><span>
-                <% if @book.user == current_user %>
-                <%= link_to "Destroy", book_path, method: :delete %>
-                <% end %>
-                </span></th>
-                        
-             </tr>
-              
             
+                <th><span><%= @book.user.name %></span></th>
+                <th><span><%= link_to @book.title %></span></th>
+              <th><span><%= @book.body %></span></th>
+
+                <% if @book.user == current_user %>
+                <th><span><%= link_to "Edit", edit_book_path, class: "btn btn-sm btn-success" %></span></th>
+
+                <th><span>
+                  <%= link_to "Delete", book_path, class: "btn btn-sm btn-danger", method: :delete %>
+                </span></th>
+               <% end %>
+             </tr>
+
+
           </tbody>
         </table>
       </div>

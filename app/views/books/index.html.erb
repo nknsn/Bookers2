@@ -8,6 +8,7 @@
       
       <table class="table">
         <tbody>
+         
           <tr>
             <th>name</th>
             <th><%= current_user.name %></th>
@@ -20,7 +21,7 @@
         </tbody>
       </table>
       <div class="row">
-        <a class="btn btn-block btn-sm  btn-outline-secondary" href="/users/users_id/edit">
+        <a class="btn btn-block btn-sm  btn-outline-secondary">
           <li class="fas far-user-cog"></li>
         </a>
       </div>
@@ -36,7 +37,8 @@
         <h6>Opinion</h6>
         <%= f.text_area :body %>
         <br>
-        <%= f.submit'Create Book' %>
+        <%= f.submit 'Create Book', class:'btn btn-success' %>
+        
       <% end %>
     </div>
   
