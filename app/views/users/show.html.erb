@@ -1,36 +1,4 @@
-<div class="container px-5 px-sm-0">
-  <div class="row">
-    <div class="col-md-3">
-      <h2>User info</h2>
-      <img class="attachment user profile_imaage fallback">
-      <table class="table">
-        <tbody>
-          <%= image_tag @user.get_profile_image(60,60) %>
-          <tr>
-            <th>name</th>
-            <th><%= @user.name %></th>
-          </tr>
-          <tr>
-            <th>introduction</th>
-            <th></th>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2>New book</h2>
-
-      <%= form_with model: @Book, local:true do |f| %>
-        <h6>Title</h6>
-        <%= f.text_field :title %>
-
-        <h6>Opinion</h6>
-        <%= f.text_area :body %>
-        <br>
-        <%= f.submit 'Create Book', class:'btn btn-success' %>
-      <% end %>
-
-    </div>
-
+ <%= render 'books/info', book: @book, current_user: @user %>
 
     <div class="col-md-8 offset-md-1">
         <h2>Books</h2>
@@ -47,7 +15,7 @@
           <tbody>
             <% @books.each do |book| %>
              <tr>
-              <th></th>
+              <th><%= image_tag @user.get_profile_image(40,40) %></th>
               <th><span><%= link_to book.title , book_path(book.id) %></span></th>
               <th><span><%= book.body %></span></th>
              </tr>

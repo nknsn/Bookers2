@@ -1,58 +1,4 @@
-<div class="container px-5 px-sm-0">
-  <% if @book.errors.any? %>
-    <%= @book.errors.count %>error prohibited this book from being saved:
-    <ul>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %> 
-    </ul>
-  <% end %>  
-  
-  <div class="row">
-    <div class="col-md-3">
-      
-      <h2>User info</h 2>
-
-
-
-
-      <table class="table">
-        <tbody>
-         
-         <%= image_tag book.current_user.get_profile_image(60,60) %>
-
-          <tr>
-            <th>name</th>
-            <th><%= current_user.name %></th>
-          </tr>
-          <tr>
-            <th>introduction</th>
-            <th></th>
-          </tr>
-
-        </tbody>
-      </table>
-      <div class="row">
-       
-        <a class="btn btn-outline-secondary  'btn-block fas fa-user-cog' "></a>
-        
-      </div>
-
-
-      <h2 class="mt-3">New book</h2>
-
-      <%= form_with model: @book,local:true do |f| %>
-
-        <h6>Title</h6>
-        <%= f.text_field :title %>
-
-        <h6>Opinion</h6>
-        <%= f.text_area :body %>
-        <br>
-        <%= f.submit 'Create Book', class:'btn btn-success' %>
-
-      <% end %>
-    </div>
+<%= render 'info', book: @book %>
 
       <div class="col-md-8 offset-md-1">
         <h2>Books</h2>
@@ -69,7 +15,7 @@
           <tbody>
             <% @books.each do |book| %>
              <tr>
-                <th></th>
+              <th><span><%= image_tag book.user.get_profile_image(40,40) %></spna></th>
               <th><span><%= link_to book.title , book_path(book.id) %></span></th>
               <th><span><%= book.body %></span></th>
              </tr>
