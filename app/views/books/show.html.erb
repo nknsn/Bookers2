@@ -1,4 +1,4 @@
-  <%= render 'info', book: @book %>
+  <%= render 'info', book: @book, current_user: @book.user %>
 
      <div class="col-md-8 offset-md-1">
         <h2>Book detail</h2>
@@ -11,15 +11,14 @@
                <th><%= image_tag @book.user.get_profile_image(40,40) %>
                <br><%= link_to @book.user.name, user_path(@book.user.id) %></th>
 
-              <th><span><%= link_to @book.title %></span></th>
-              <th><span><%= @book.body %></span></th>
+              <th><%= link_to @book.title %></th>
+              <th><%= @book.body %></th>
 
                 <% if @book.user == current_user %>
-                <th><span><%= link_to "Edit", edit_book_path, class: "btn btn-sm btn-success" %></span></th>
+                <th><%= link_to "Edit", edit_book_path, class: "btn btn-sm btn-success" %></th>
 
-                <th><span>
-                  <%= link_to "Delete", book_path, class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %>
-                </span></th>
+                <th><%= link_to "Destroy", book_path, class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                </th>
                <% end %>
              </tr>
 
